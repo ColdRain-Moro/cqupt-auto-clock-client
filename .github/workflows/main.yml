@@ -1,0 +1,36 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 16 * * *'
+    - cron: '0 18 * * *'
+    - cron: '0 20 * * *'
+    - cron: '0 22 * * *'
+    - cron: '0 0 * * *'  
+    - cron: '0 5 * * *'
+
+jobs:
+  run-csjs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master  #采用main分支下的
+           
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1.1.1
+          
+      - name: Run       
+        run: |
+          deno run -A main.ts "$BASE_URL" "$NAME" "$STU_ID" "$USERNAME" "$PASSWORD"
+        env: 
+          BASE_URL: ${{ secrets.BASE_URL }}
+          NAME: ${{ secrets.NAME }}
+          STU_ID: ${{ secrets.STU_ID }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}

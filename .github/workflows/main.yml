@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Deno CI
 
 on:
   push:
@@ -27,10 +27,11 @@ jobs:
           
       - name: Run       
         run: |
-          deno run -A main.ts "$BASE_URL" "$NAME" "$STU_ID" "$USERNAME" "$PASSWORD"
+          deno run -A main.ts "$BASE_URL" "$NAME" "$STU_ID" "$USERNAME" "$PASSWORD" "$LOCATION"
         env: 
           BASE_URL: ${{ secrets.BASE_URL }}
           NAME: ${{ secrets.NAME }}
           STU_ID: ${{ secrets.STU_ID }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          LOCATION: ${{ secrets.LOCATION }}

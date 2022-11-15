@@ -1,5 +1,5 @@
-// BASE_URL NAME STU_ID USERNAME PASSWORD
-//参数列表: 服务器地址 名字 学号 用户名 密码
+// BASE_URL NAME STU_ID USERNAME PASSWORD LOCATION
+// 参数列表: 服务器地址 名字 学号 用户名 密码 具体位置
 
 const baseUrl = Deno.args[0]
 
@@ -13,7 +13,7 @@ const req = {
   "latitude": "29.52168",
   "longitude": "106.56256",
   "district": "重庆市,重庆市,南岸区",
-  "location": "重庆邮电大学 明理苑4舍802号",
+  "location": Deno.args[5],
   "risk_level": "低风险",
   "risk_history": "无",
   "contact_history": "无",

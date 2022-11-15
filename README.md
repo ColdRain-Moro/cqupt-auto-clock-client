@@ -13,9 +13,10 @@ fork，给仓库设置以下secret
 | STU_ID   | 学号                       |
 | USERNAME | 教务在线帐号（统一认证码） |
 | PASSWORD | 教务在线密码               |
+| LOCATION | 具体位置 (重庆邮电大学xx苑xx舍) |
 
 ## 使用其他方式部署
 
 需要 Deno 环境
 
-> deno run -A main.ts [BASE_URL] [NAME] [STU_ID] [USERNAME] [PASSWORD]
+> deno run -A main.ts [BASE_URL] [NAME] [STU_ID] [USERNAME] [PASSWORD] [LOCATION]
